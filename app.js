@@ -1,14 +1,22 @@
 // Slider stuff
 let slider = document.getElementById("myRange");
 let output = document.getElementById("sliderOutput");
-
-
 let gridContainer = document.getElementById("grid-container")
 
+// Display the default slider value
+output.innerHTML = `${slider.value} x ${slider.value}`;; 
+
+// Adding event listeners to each of the current divs to allow colouring on hover
+var grids = gridContainer.getElementsByTagName('*');
+var gridsList = Array.prototype.slice.call(grids);
+gridsList.forEach((grid) => {
+// and for each one we add a 'click' listener
+    grid.addEventListener('click', () => {
+      grid.style.backgroundColor = 'green';
+    });
+  });
 
 
-output.innerHTML = slider.value; // Display the default slider value
-console.log(slider.value)
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
@@ -25,4 +33,16 @@ slider.oninput = function() {
     gridContainer.appendChild(div);
   }
 
+  // ADD FRESH events listener to each grid to allow colouring!!!
+  var grids = gridContainer.getElementsByTagName('*');
+  var gridsList = Array.prototype.slice.call(grids);
+  gridsList.forEach((grid) => {
+      // and for each one we add a 'click' listener
+      grid.addEventListener('click', () => {
+          grid.style.backgroundColor = 'green';
+        });
+    });
+
 }
+
+
