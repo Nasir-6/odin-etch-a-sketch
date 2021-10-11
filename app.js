@@ -11,7 +11,7 @@ var grids = gridContainer.getElementsByTagName('*');
 var gridsList = Array.prototype.slice.call(grids);
 gridsList.forEach((grid) => {
 // and for each one we add a 'click' listener
-    grid.addEventListener('click', () => {
+    grid.addEventListener('mouseover', () => {
       grid.style.backgroundColor = 'green';
     });
   });
@@ -38,7 +38,7 @@ slider.oninput = function() {
   var gridsList = Array.prototype.slice.call(grids);
   gridsList.forEach((grid) => {
       // and for each one we add a 'click' listener
-      grid.addEventListener('click', () => {
+      grid.addEventListener('mouseover', () => {
           grid.style.backgroundColor = 'green';
         });
     });
