@@ -1,6 +1,6 @@
 //Variables
 let currentColour = "blue"
-let currentMode = "Rainbow"
+let currentMode = "Colour Picker Mode"
 
 //Get all HTML Elements
 let resolutionSlider = document.getElementById("myRange");
@@ -10,17 +10,27 @@ let colourPicker = document.getElementById("colourPicker");
 let colourModeBtn = document.getElementById("colourBtn");
 let rainbowModeBtn = document.getElementById("rainbowBtn");
 let eraserModeBtn = document.getElementById("eraserBtn");
+let resetBtn = document.getElementById("resetBtn");
 
 
 eraserModeBtn.addEventListener("click", changeColourMode);
 colourModeBtn.addEventListener("click", changeColourMode);
 rainbowModeBtn.addEventListener("click", changeColourMode);
 
+
 function changeColourMode(event){
   currentMode = event.target.value;
+  console.log(currentMode)
   addColourToGrids();
 }
 
+resetBtn.addEventListener("click", resetGrid);
+
+function resetGrid(){
+  console.log("Reset button pressed")
+  reloadGrid();
+  addColourToGrids();
+}
 
 
 
@@ -74,7 +84,6 @@ function addColourToGrids() {
       } else if(currentMode=="Eraser Mode"){
         grid.style.backgroundColor = "#fff";
       }
-
     });
   });
 }
