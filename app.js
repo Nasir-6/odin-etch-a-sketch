@@ -1,5 +1,6 @@
 //Variables
 let currentColour = "blue"
+let currentMode = "Rainbow"
 
 //Get all HTML Elements
 let resolutionSlider = document.getElementById("myRange");
@@ -51,9 +52,12 @@ function addColourToGrids() {
   var gridsList = Array.prototype.slice.call(grids);
   gridsList.forEach((grid) => {
     grid.addEventListener('mouseover', () => {
-      // grid.style.backgroundColor = getRandomColour();
-      console.log(colourPicker)
-      grid.style.backgroundColor = currentColour;
+      if(currentMode=="Pick Colour"){
+        grid.style.backgroundColor = currentColour;
+      } else if(currentMode=="Rainbow"){
+        grid.style.backgroundColor = getRandomColour();
+      }
+
     });
   });
 }
