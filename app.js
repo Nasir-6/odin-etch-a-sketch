@@ -5,8 +5,23 @@ let currentMode = "Rainbow"
 //Get all HTML Elements
 let resolutionSlider = document.getElementById("myRange");
 let resolutionOutput = document.getElementById("sliderOutput");
-let gridContainer = document.getElementById("grid-container")
-let colourPicker = document.getElementById("colourPicker")
+let gridContainer = document.getElementById("grid-container");
+let colourPicker = document.getElementById("colourPicker");
+let colourModeBtn = document.getElementById("colourBtn");
+let rainbowModeBtn = document.getElementById("rainbowBtn");
+let eraserModeBtn = document.getElementById("eraserBtn");
+
+
+eraserModeBtn.addEventListener("click", changeColourMode);
+colourModeBtn.addEventListener("click", changeColourMode);
+rainbowModeBtn.addEventListener("click", changeColourMode);
+
+function changeColourMode(event){
+  currentMode = event.target.value;
+  addColourToGrids();
+}
+
+
 
 
 colorPicker.addEventListener("change", watchColorPicker, false);
@@ -52,10 +67,12 @@ function addColourToGrids() {
   var gridsList = Array.prototype.slice.call(grids);
   gridsList.forEach((grid) => {
     grid.addEventListener('mouseover', () => {
-      if(currentMode=="Pick Colour"){
+      if(currentMode=="Colour Picker Mode"){
         grid.style.backgroundColor = currentColour;
-      } else if(currentMode=="Rainbow"){
+      } else if(currentMode=="Rainbow Mode"){
         grid.style.backgroundColor = getRandomColour();
+      } else if(currentMode=="Eraser Mode"){
+        grid.style.backgroundColor = "#fff";
       }
 
     });
