@@ -19,8 +19,10 @@ rainbowModeBtn.addEventListener("click", changeColourMode);
 
 
 function changeColourMode(event){
+  activeBtns = document.getElementsByClassName("active")
+  activeBtns[0].classList.remove("active");
   currentMode = event.target.value;
-  console.log(currentMode)
+  event.target.classList.add("active")
   addColourToGrids();
 }
 
@@ -34,9 +36,9 @@ function resetGrid(){
 
 
 
-colorPicker.addEventListener("change", watchColorPicker, false);
+colourPicker.addEventListener("change", watchColourPicker, false);
 
-function watchColorPicker(event) {
+function watchColourPicker(event) {
   currentColour = event.target.value;
   addColourToGrids();
 }

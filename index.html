@@ -14,22 +14,22 @@
 
     <div class="main">
         <div class="settings">
-            <h2>Settings</h2>
-
-            <h3>Grid Resolution</h3>
-            <div class="slidecontainer">
-                <input type="range" min="1" max="64" value="32" class="slider" id="myRange">
+           
+            <div class="colourPickerContainer">
+                <input type="color" id="colourPicker" value="#0000ff">
             </div>
-            <div id="sliderOutput">
-                SliderValue
-            </div>
-            <input type="color" id="colorPicker" value="#0000ff">
+            
 
-            <label for="colourMode"></label>
             <button class="btn active" id="colourBtn" value="Colour Picker Mode">Colour Picker</button>
             <button class="btn" id="rainbowBtn" value="Rainbow Mode">Rainbow Mode</button>
             <button class="btn" id="eraserBtn" value="Eraser Mode">Eraser</button>
             <button class="btn" id="resetBtn">Reset</button>
+
+            <div class="slidercontainer">
+                <input type="range" min="1" max="64" value="32" class="slider" id="myRange">
+            </div>
+
+            <div id="sliderOutput"></div>
             
         </div>
         <div class="grid" id="grid-container">
